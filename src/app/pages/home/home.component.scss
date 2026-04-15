@@ -1,0 +1,23 @@
+select.form-select {
+  background-color: #eafcff41 !important;
+  font-size: 13px !important;
+  font-weight: 300 !important;
+}
+
+select.form-select:focus,
+select.form-select:focus-visible {
+  outline: none !important;
+  border-color: #eafcffd7 !important;
+  box-shadow: 0 0 0 2px #7eecffa1 !important;
+  background-color: #eafcff5c !important;
+}
+
+.left-panel {
+  height: calc(100vh - 77px);
+  overflow-y: auto;
+}
+
+.right-panel {
+  height: 100vh;
+  overflow-y: auto;
+}

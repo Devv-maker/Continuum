@@ -1,0 +1,12 @@
+<nav class="navbar border-bottom px-4">
+  <img src="assets/images/logo-dark.svg" alt="logo" class="logo-img" />
+
+  <div class="d-flex align-items-center gap-3">
+    <span class="text-muted">{{user.username}}</span>
+
+    <button class="btn btn-link text-danger p-0" (click)="handlelogout()">
+      <i antIcon type="logout" theme="outline" class="pe-1"></i>
+      Logout
+    </button>
+  </div>
+</nav>

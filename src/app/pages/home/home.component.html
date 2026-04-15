@@ -1,0 +1,134 @@
+<div class="container mt-4">
+  <div class="row">
+    <!-- LEFT: Filters -->
+    <div class="col-md-12 col-lg-3 vh-100 p-3">
+      <!-- Service Type -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Service Type</label>
+        <select class="form-select" [(ngModel)]="selectedService" (change)="onServiceChange()">
+          <option value="">Select Service Type</option>
+          <option *ngFor="let s of serviceTypes" [value]="s">{{ s }}</option>
+        </select>
+      </div>
+
+      <!-- Areas Addressed -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Areas Addressed</label>
+        <select class="form-select" [(ngModel)]="selectedArea" (change)="onAreaChange()">
+          <option value="">Select Areas Addressed</option>
+          <option *ngFor="let a of areas" [value]="a">{{ a }}</option>
+        </select>
+      </div>
+
+      <!-- Ages Served -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Ages Served</label>
+        <select class="form-select">
+          <option value="">Select Ages Served</option>
+          <option *ngFor="let a of ages">{{ a }}</option>
+        </select>
+      </div>
+
+      <!-- Cost -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Cost to Family</label>
+        <select class="form-select">
+          <option value="">Select Cost to Family</option>
+          <option *ngFor="let c of costs">{{ c }}</option>
+        </select>
+      </div>
+
+      <!-- Service Area -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Service Area</label>
+        <select class="form-select">
+          <option value="">Select Service Area</option>
+          <option *ngFor="let s of serviceAreas">{{ s }}</option>
+        </select>
+      </div>
+
+      <!-- Transportation -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Transportation</label>
+        <select class="form-select">
+          <option value="">Select Transportation</option>
+          <option *ngFor="let t of transportation">{{ t }}</option>
+        </select>
+      </div>
+
+      <!-- Agency -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Agency</label>
+        <select class="form-select">
+          <option value="">Select Agency</option>
+          <option *ngFor="let a of agencies">{{ a }}</option>
+        </select>
+      </div>
+
+      <!-- Program -->
+      <div class="mb-4">
+        <label class="form-label fw-semibold">Program</label>
+        <select class="form-select">
+          <option value="">Select Program</option>
+          <option *ngFor="let p of programs">{{ p }}</option>
+        </select>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-between mt-5">
+        <button class="btn btn-light border" (click)="resetFilters()">Reset</button>
+        <button type="button" class="btn btn-primary">Apply Filters</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Content -->
+    <div class="col-lg-9 p-4 ps-5">
+      <div *ngIf="!currentNode" class="p-5 text-center">
+        <div class="text-center mt-5">
+          <h2 class="fw-bold">Services Directory</h2>
+          <p class="text-muted">Select Service Type and Areas Addressed to see results</p>
+
+          <div class="mt-5">
+            <h5 class="mt-4">No matching services found</h5>
+
+            <p class="text-muted">
+              Try adjusting your filters or reset them to discover available youth programs and services in your area.
+            </p>
+
+            <button class="btn btn-light border mt-3" (click)="resetFilters()">Clear all filters</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROGRAMS -->
+      <div *ngIf="programs.length">
+        <h5 class="mt-4">Programs</h5>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="card p-3" *ngFor="let p of programs">
+            <strong>{{ p }}</strong>
+            <small class="text-muted">Program</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- AGENCIES -->
+      <div *ngIf="agencies.length">
+        <h5 class="mt-4">Agencies</h5>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="card p-3" *ngFor="let a of agencies">
+            <strong>{{ a }}</strong>
+            <small class="text-muted">Agency</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE AREAS -->
+      <div *ngIf="serviceAreas.length">
+        <h5 class="mt-4">Service Areas</h5>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge bg-light text-dark border" *ngFor="let s of serviceAreas">📍 {{ s }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
